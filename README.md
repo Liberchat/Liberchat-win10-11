@@ -5,7 +5,6 @@
 </p>
 
 <p align="center">
- <a href="https://github.com/Liberchat/Liberchat-win10-11/releases/latest"><img src="https://img.shields.io/github/v/release/Liberchat/Liberchat-win10-11?label=Release&style=for-the-badge" alt="Release"/></a>
  <a href="https://github.com/Liberchat/Liberchat/blob/main/LICENSE"><img src="https://img.shields.io/github/license/Liberchat/Liberchat?style=for-the-badge" alt="License"/></a>
   <img src="https://img.shields.io/badge/Uninstaller-Included-blue?style=for-the-badge" alt="Uninstaller Included"/>
   <img src="https://img.shields.io/badge/Windows-10%20%7C%2011-blue?style=for-the-badge" alt="Windows 10/11"/>
