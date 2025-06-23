@@ -5,10 +5,10 @@
 </p>
 
 <p align="center">
- <a href="https://github.com/Liberchat/Liberchat/blob/main/LICENSE"><img src="https://img.shields.io/github/license/Liberchat/Liberchat?style=for-the-badge" alt="License"/></a>
   <img src="https://img.shields.io/badge/Windows-10%20%7C%2011-blue?style=for-the-badge" alt="Windows 10/11"/>
   <img src="https://img.shields.io/badge/Installer-NSIS-blueviolet?style=for-the-badge" alt="NSIS Installer"/>
   <img src="https://img.shields.io/badge/Uninstaller-Included-blue?style=for-the-badge" alt="Uninstaller Included"/>
+  <a href="https://github.com/Liberchat/Liberchat/blob/main/LICENSE"><img src="https://img.shields.io/github/license/Liberchat/Liberchat?style=for-the-badge" alt="License"/></a>
 </p>
 
 ## Installation
