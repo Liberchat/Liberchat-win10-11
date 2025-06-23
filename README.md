@@ -1,75 +1,37 @@
-<div align="center">
-  <a href="https://github.com/Liberchat/Liberchat">
-    <img src="assets/icon.ico" alt="Liberchat Logo" width="96" height="96" style="margin-bottom: 10px;" />
-  </a>
-  
-  <h1 style="margin-top: 0;">Liberchat Linux Desktop</h1>
-  
-  <a href="https://github.com/Liberchat/Liberchat">Projet principal sur GitHub</a>
-  
-  <br/>
-  
-  <img src="https://img.shields.io/badge/Electron-22.x-blue?logo=electron"/>
-  <img src="https://img.shields.io/badge/Linux-compatible-success?logo=linux"/>
-  <img src="https://img.shields.io/badge/UI-Modern-red"/>
-  <img src="https://img.shields.io/badge/license-MIT-green"/>
-  
-  <br/>
-  <em>Application de messagerie moderne, multiplateforme, basée sur Electron.</em>
-</div>
+# Liberchat – Guide d'installation Windows
 
-## Fonctionnalités principales
-- **Splash screen** stylisé avec choix du serveur
-- **Compatibilité micro** (permissions automatiques)
-- **Sécurité** : contextIsolation, preload sécurisé
-- **Fenêtre principale maximisée, sans barre de menu**
-- **Build universel Linux** : AppImage, deb, rpm, snap
+<p align="center">
+  <img src="assets/icons/256x256/liberchat.png" alt="Liberchat Logo" width="96" height="96" />
+</p>
 
-## Installation & Lancement
+<p align="center">
+  <a href="https://github.com/Liberchat/Liberchat/releases/latest"><img src="https://img.shields.io/github/v/release/Liberchat/Liberchat?label=Release&style=for-the-badge" alt="Release"/></a>
+  <a href="https://github.com/Liberchat/Liberchat/blob/main/LICENSE"><img src="https://img.shields.io/github/license/Liberchat/Liberchat?style=for-the-badge" alt="License"/></a>
+  <img src="https://img.shields.io/badge/Uninstaller-Included-blue?style=for-the-badge" alt="Uninstaller Included"/>
+  <img src="https://img.shields.io/badge/Windows-10%20%7C%2011-blue?style=for-the-badge" alt="Windows 10/11"/>
+  <img src="https://img.shields.io/badge/Installer-NSIS-blueviolet?style=for-the-badge" alt="NSIS Installer"/>
+</p>
 
-```bash
-# Installer les dépendances
-npm install
+## Installation
 
-# Lancer en mode développement
-npm start
+1. **Téléchargez** le fichier `Liberchat-Setup-2.0.0.exe` depuis la page de releases ou le dossier `dist/`.
+2. **Double-cliquez** sur le fichier pour lancer l’assistant d’installation.
+3. Suivez les instructions à l’écran :
+   - Choisissez le dossier d’installation si besoin.
+   - Cliquez sur "Installer".
+4. Une fois l’installation terminée, lancez Liberchat depuis le menu Démarrer ou le raccourci sur le bureau.
 
-# Générer les paquets pour Linux (AppImage, deb, rpm, snap)
-npm run build
-```
+## Désinstallation
 
-Les fichiers générés se trouvent dans le dossier `dist/`.
+- Ouvrez le Panneau de configuration > Programmes et fonctionnalités.
+- Sélectionnez "Liberchat" puis cliquez sur "Désinstaller".
+- Ou lancez le raccourci "Uninstall Liberchat" créé dans le menu Démarrer.
 
-## Installation sur Linux
+## Problèmes connus
 
-Après compilation (`npm run build`), vous trouverez dans le dossier `dist/` :
+- Si Windows SmartScreen affiche un avertissement, cliquez sur "Informations complémentaires" puis "Exécuter quand même".
+- Si l’icône n’apparaît pas, relancez l’application ou redémarrez Windows.
 
-- **AppImage** (`.AppImage`) : universel, exécutable sur la plupart des distributions.
-  - Rendez le fichier exécutable : `chmod +x Liberchat-*.AppImage`
-  - Lancez-le : `./Liberchat-*.AppImage`
+## Support
 
-- **Debian/Ubuntu** (`.deb`) :
-  - Installez avec : `sudo dpkg -i Liberchat-*.deb`
-  - Ou double-cliquez sur le fichier dans votre gestionnaire de fichiers.
-
-- **Fedora/RedHat** (`.rpm`) :
-  - Installez avec : `sudo rpm -i Liberchat-*.rpm`
-
-- **Snap** (`.snap`) :
-  - Installez avec : `sudo snap install --dangerous Liberchat-*.snap`
-
-> **Astuce** : AppImage fonctionne sur la plupart des distributions sans installation système.
-
-## Configuration du serveur
-Au démarrage, saisissez l’URL du serveur Liberchat de votre choix dans le splash screen.
-
-## Dépendances principales
-- [Electron](https://www.electronjs.org/) ^22.x
-- [electron-builder](https://www.electron.build/)
-
-## Licence
-MIT
-
----
-Projet moderne, pensé pour la compatibilité et la simplicité d’utilisation sur toutes les distributions Linux.
-# Liberchat-Linux
+Pour toute question ou bug, contactez : contact@liberchat.org ou ouvrez un ticket sur [GitHub](https://github.com/Liberchat/Liberchat).

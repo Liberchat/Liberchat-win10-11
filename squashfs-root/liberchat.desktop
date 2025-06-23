@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Liberchat
+Exec=AppRun --no-sandbox %U
+Terminal=false
+Type=Application
+Icon=liberchat
+StartupWMClass=Liberchat
+X-AppImage-Version=2.0.0
+Comment=Liberchat Desktop App
+Categories=Network;

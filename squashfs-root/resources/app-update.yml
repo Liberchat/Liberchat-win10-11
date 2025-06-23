@@ -1,0 +1,4 @@
+owner: Liberchat
+repo: Liberchat-Linux
+provider: github
+updaterCacheDirName: liberchat-updater

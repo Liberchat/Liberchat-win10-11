@@ -39,6 +39,7 @@ function createWindow() {
         center: true,
         show: false,
         autoHideMenuBar: true,
+        icon: path.join(__dirname, 'assets', 'icons', 'liberchat.png'),
         webPreferences: {
             nodeIntegration: false,
             contextIsolation: true,
