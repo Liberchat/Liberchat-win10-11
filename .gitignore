@@ -21,3 +21,16 @@ Thumbs.db
 
 # VSCode
 .vscode/
+
+# Electron build artifacts
+squashfs-root/
+Liberchat-*.AppImage
+Liberchat-*.exe
+Liberchat-*.deb
+Liberchat-*.rpm
+Liberchat-*.snap
+*.7z
+__uninstaller-*.exe
+
+# Documentation générée
+README-WINDOWS.md
