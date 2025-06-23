@@ -1,6 +1,7 @@
 # Node modules
 node_modules/
-
+/node_modules
+/dist
 # Build output
 dist/
 
@@ -34,3 +35,4 @@ __uninstaller-*.exe
 
 # Documentation générée
 README-WINDOWS.md
+/dist
