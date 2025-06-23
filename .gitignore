@@ -1,0 +1,44 @@
+# Node modules
+node_modules/
+/node_modules
+/dist
+# Build output
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Env files
+.env
+
+# Electron cache
+.cache/
+
+# VSCode
+.vscode/
+
+# Electron build artifacts
+squashfs-root/
+Liberchat-*.AppImage
+Liberchat-*.exe
+Liberchat-*.deb
+Liberchat-*.rpm
+Liberchat-*.snap
+*.7z
+__uninstaller-*.exe
+squashfs-root/liberchat
+squashfs-root/resources/app.asar
+locales
+resources
+__uninstaller
+usr/ 
+
+# Documentation générée
+README-WINDOWS.md
+/dist
