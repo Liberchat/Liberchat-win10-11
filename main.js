@@ -3,7 +3,7 @@ const path = require('path');
 
 let mainWindow;
 let splash;
-let selectedServer = 'https://liberchat-3-0-1.onrender.com/';
+let selectedServer = 'https://liberchat.cnt-ait-contact.noho.st/liberchat';
 
 function createSplash() {
     splash = new BrowserWindow({
