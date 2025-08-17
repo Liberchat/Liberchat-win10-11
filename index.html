@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Liberchat</title>
+	<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			background: linear-gradient(135deg, #f5f6fa 0%, #e0e4ea 100%);
+			margin: 0;
+			color: #222;
+			font-family: 'Segoe UI', Arial, sans-serif;
+		}
+
+		.logo {
+			width: 72px;
+			height: 72px;
+			margin-bottom: 18px;
+			border-radius: 16px;
+			box-shadow: 0 2px 12px #0001;
+			background: #fff;
+			padding: 8px;
+		}
+
+		.title {
+			font-size: 2em;
+			font-weight: 700;
+			letter-spacing: 1px;
+			color: #c00;
+			margin-bottom: 8px;
+		}
+
+		.loader {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: 18px 0 10px 0;
+		}
+
+		.loader-dot {
+			width: 12px;
+			height: 12px;
+			margin: 0 4px;
+			border-radius: 50%;
+			background: #c00;
+			animation: bounce 1.2s infinite ease-in-out both;
+		}
+
+		.loader-dot:nth-child(2) {
+			animation-delay: 0.2s;
+		}
+
+		.loader-dot:nth-child(3) {
+			animation-delay: 0.4s;
+		}
+
+		@keyframes bounce {
+
+			0%,
+			80%,
+			100% {
+				transform: scale(0.7);
+				opacity: 0.5;
+			}
+
+			40% {
+				transform: scale(1.2);
+				opacity: 1;
+			}
+		}
+
+		.slogan {
+			font-size: 1em;
+			color: #888;
+			margin-bottom: 18px;
+		}
+
+		#server-form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 8px;
+			margin-top: 10px;
+		}
+
+		#server-input {
+			padding: 8px 12px;
+			border-radius: 6px;
+			border: 1px solid #bbb;
+			font-size: 1em;
+			width: 260px;
+			background: #fff;
+			color: #222;
+			box-shadow: 0 1px 4px #0001;
+		}
+
+		#server-form button {
+			padding: 8px 24px;
+			background: #c00;
+			color: #fff;
+			border: none;
+			border-radius: 6px;
+			font-weight: 600;
+			font-size: 1em;
+			cursor: pointer;
+			transition: background 0.2s, box-shadow 0.2s;
+			box-shadow: 0 1px 4px #c001;
+		}
+
+		#server-form button:hover {
+			background: #a00;
+			box-shadow: 0 2px 8px #c002;
+		}
+
+		/* Thème sombre */
+		body.dark-theme {
+			background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+			color: #e0e0e0;
+		}
+
+		body.dark-theme .logo {
+			background: #333;
+			box-shadow: 0 2px 12px #0003;
+		}
+
+		body.dark-theme .title {
+			color: #ff4444;
+		}
+
+		body.dark-theme .slogan {
+			color: #aaa;
+		}
+
+		body.dark-theme #server-input {
+			background: #333;
+			color: #e0e0e0;
+			border-color: #555;
+		}
+
+		body.dark-theme .loader-dot {
+			background: #ff4444;
+		}
+
+		/* Bouton de thème */
+		#theme-toggle {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			font-size: 24px;
+			cursor: pointer;
+			padding: 8px;
+			border-radius: 50%;
+			background: rgba(255, 255, 255, 0.1);
+			transition: all 0.3s ease;
+		}
+
+		#theme-toggle:hover {
+			background: rgba(255, 255, 255, 0.2);
+			transform: scale(1.1);
+		}
+
+		/* Menu déroulant historique */
+		.input-container {
+			position: relative;
+			width: 260px;
+		}
+
+		#history-dropdown {
+			position: absolute;
+			top: 100%;
+			left: 0;
+			right: 0;
+			background: #fff;
+			border: 1px solid #bbb;
+			border-top: none;
+			border-radius: 0 0 6px 6px;
+			box-shadow: 0 2px 8px #0002;
+			z-index: 1000;
+			max-height: 200px;
+			overflow-y: auto;
+		}
+
+		body.dark-theme #history-dropdown {
+			background: #333;
+			border-color: #555;
+		}
+
+		.history-item {
+			padding: 8px 12px;
+			cursor: pointer;
+			border-bottom: 1px solid #eee;
+			font-size: 0.9em;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		body.dark-theme .history-item {
+			border-bottom-color: #444;
+		}
+
+		.history-item:hover {
+			background: #f5f5f5;
+		}
+
+		body.dark-theme .history-item:hover {
+			background: #444;
+		}
+
+		.history-item:last-child {
+			border-bottom: none;
+		}
+
+		.history-remove {
+			color: #c00;
+			font-weight: bold;
+			margin-left: 8px;
+			opacity: 0.7;
+		}
+
+		.history-remove:hover {
+			opacity: 1;
+		}
+	</style>
+</head>
+
+<body>
+	<img src="assets/icon.ico" alt="Logo Liberchat" class="logo">
+	<div class="title">LIBERCHAT</div>
+	<div class="loader">
+		<div class="loader-dot"></div>
+		<div class="loader-dot"></div>
+		<div class="loader-dot"></div>
+	</div>
+	<div class="slogan">Votre messagerie, votre choix de serveur</div>
+	<div id="theme-toggle" title="Changer de thème">🌙</div>
+	<form id="server-form">
+		<div class="input-container">
+			<input id="server-input" type="text"
+				placeholder="URL du serveur (ex: https://liberchat.cnt-ait-contact.noho.st/liberchat)"
+				value="https://liberchat.cnt-ait-contact.noho.st/liberchat" required />
+			<div id="history-dropdown" style="display:none;"></div>
+		</div>
+		<button type="submit">Se connecter</button>
+		<div id="error-msg" style="color:#c00;font-size:0.95em;margin-top:6px;display:none;"></div>
+	</form>
+	<script>
+		let userConfig = null;
+
+		// Charger la configuration au démarrage
+		async function loadUserConfig() {
+			if (window.electronAPI) {
+				userConfig = await window.electronAPI.getConfig();
+				applyTheme();
+				updateServerInput();
+			}
+		}
+
+		// Appliquer le thème
+		function applyTheme() {
+			if (!userConfig) return;
+			
+			const themeToggle = document.getElementById('theme-toggle');
+			let currentTheme = userConfig.theme;
+			
+			if (currentTheme === 'auto') {
+				currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+			}
+			
+			if (currentTheme === 'dark') {
+				document.body.classList.add('dark-theme');
+				themeToggle.textContent = '☀️';
+			} else {
+				document.body.classList.remove('dark-theme');
+				themeToggle.textContent = '🌙';
+			}
+		}
+
+		// Mettre à jour le champ serveur avec le dernier utilisé
+		function updateServerInput() {
+			if (userConfig && userConfig.lastServer) {
+				document.getElementById('server-input').value = userConfig.lastServer;
+			}
+		}
+
+		// Afficher l'historique des serveurs
+		function showHistory() {
+			if (!userConfig || !userConfig.serverHistory) return;
+			
+			const dropdown = document.getElementById('history-dropdown');
+			dropdown.innerHTML = '';
+			
+			userConfig.serverHistory.forEach(server => {
+				const item = document.createElement('div');
+				item.className = 'history-item';
+				item.innerHTML = `
+					<span class="server-url">${server}</span>
+					<span class="history-remove" title="Supprimer">×</span>
+				`;
+				
+				item.querySelector('.server-url').addEventListener('click', () => {
+					document.getElementById('server-input').value = server;
+					hideHistory();
+				});
+				
+				item.querySelector('.history-remove').addEventListener('click', async (e) => {
+					e.stopPropagation();
+					if (window.electronAPI) {
+						userConfig.serverHistory = await window.electronAPI.removeFromHistory(server);
+						showHistory();
+					}
+				});
+				
+				dropdown.appendChild(item);
+			});
+			
+			dropdown.style.display = userConfig.serverHistory.length > 0 ? 'block' : 'none';
+		}
+
+		function hideHistory() {
+			document.getElementById('history-dropdown').style.display = 'none';
+		}
+
+		function isValidURL(url) {
+			try {
+				const u = new URL(url);
+				return u.protocol === 'https:' || u.protocol === 'http:';
+			} catch {
+				return false;
+			}
+		}
+
+		// Event listeners
+		document.addEventListener('DOMContentLoaded', () => {
+			loadUserConfig();
+			
+			// Basculer le thème
+			document.getElementById('theme-toggle').addEventListener('click', async () => {
+				if (!userConfig || !window.electronAPI) return;
+				
+				let newTheme;
+				if (userConfig.theme === 'light') {
+					newTheme = 'dark';
+				} else if (userConfig.theme === 'dark') {
+					newTheme = 'auto';
+				} else {
+					newTheme = 'light';
+				}
+				
+				userConfig.theme = await window.electronAPI.updateTheme(newTheme);
+				applyTheme();
+			});
+			
+			// Afficher l'historique au focus
+			document.getElementById('server-input').addEventListener('focus', showHistory);
+			
+			// Cacher l'historique au clic ailleurs
+			document.addEventListener('click', (e) => {
+				if (!e.target.closest('.input-container')) {
+					hideHistory();
+				}
+			});
+			
+			// Soumission du formulaire
+			document.getElementById('server-form').addEventListener('submit', function (e) {
+				e.preventDefault();
+				const server = document.getElementById('server-input').value.trim();
+				const errorMsg = document.getElementById('error-msg');
+				if (!isValidURL(server)) {
+					errorMsg.textContent = "Veuillez saisir une URL valide (commençant par https:// ou http://).";
+					errorMsg.style.display = 'block';
+					return;
+				}
+				errorMsg.style.display = 'none';
+				window.electronAPI && window.electronAPI.selectServer(server);
+			});
+		});
+	</script>
+</body>
+
+</html>
