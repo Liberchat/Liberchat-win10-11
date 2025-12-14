@@ -85,7 +85,7 @@ MIT
 ---
 Projet moderne, optimisé pour Windows 10 et 11 avec une interface native et performante.
 
-## 🚀 Utilisation
+##  Utilisation
 
 ### Configuration du serveur
 1. **Premier lancement** : Saisissez l'URL du serveur Liberchat dans le splash screen
