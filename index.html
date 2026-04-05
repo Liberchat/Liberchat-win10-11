@@ -118,7 +118,7 @@
 			box-shadow: 0 2px 8px #c002;
 		}
 
-		/* Thème sombre */
+		/* Dark theme */
 		body.dark-theme {
 			background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
 			color: #e0e0e0;
@@ -147,7 +147,7 @@
 			background: #ff4444;
 		}
 
-		/* Bouton de thème */
+		/* Theme button */
 		#theme-toggle {
 			position: absolute;
 			top: 20px;
@@ -165,7 +165,7 @@
 			transform: scale(1.1);
 		}
 
-		/* Menu déroulant historique */
+		/* History dropdown menu */
 		.input-container {
 			position: relative;
 			width: 260px;
@@ -231,29 +231,29 @@
 </head>
 
 <body>
-	<img src="assets/icon.ico" alt="Logo Liberchat" class="logo">
+	<img src="assets/icon.ico" alt="Liberchat Logo" class="logo">
 	<div class="title">LIBERCHAT</div>
 	<div class="loader">
 		<div class="loader-dot"></div>
 		<div class="loader-dot"></div>
 		<div class="loader-dot"></div>
 	</div>
-	<div class="slogan">Votre messagerie, votre choix de serveur</div>
-	<div id="theme-toggle" title="Changer de thème">🌙</div>
+	<div class="slogan">Your messaging, your server choice</div>
+	<div id="theme-toggle" title="Change theme">🌙</div>
 	<form id="server-form">
 		<div class="input-container">
 			<input id="server-input" type="text"
-				placeholder="URL du serveur (ex: https://liberchat.cnt-ait-contact.noho.st/liberchat)"
+				placeholder="Server URL (e.g., https://liberchat.cnt-ait-contact.noho.st/liberchat)"
 				value="https://liberchat.cnt-ait-contact.noho.st/liberchat" required />
 			<div id="history-dropdown" style="display:none;"></div>
 		</div>
-		<button type="submit">Se connecter</button>
+		<button type="submit">Connect</button>
 		<div id="error-msg" style="color:#c00;font-size:0.95em;margin-top:6px;display:none;"></div>
 	</form>
 	<script>
 		let userConfig = null;
 
-		// Charger la configuration au démarrage
+		// Load configuration on startup
 		async function loadUserConfig() {
 			if (window.electronAPI) {
 				userConfig = await window.electronAPI.getConfig();
@@ -262,7 +262,7 @@
 			}
 		}
 
-		// Appliquer le thème
+		// Apply theme
 		function applyTheme() {
 			if (!userConfig) return;
 			
@@ -282,14 +282,14 @@
 			}
 		}
 
-		// Mettre à jour le champ serveur avec le dernier utilisé
+		// Update server field with last used
 		function updateServerInput() {
 			if (userConfig && userConfig.lastServer) {
 				document.getElementById('server-input').value = userConfig.lastServer;
 			}
 		}
 
-		// Afficher l'historique des serveurs
+		// Show server history
 		function showHistory() {
 			if (!userConfig || !userConfig.serverHistory) return;
 			
@@ -301,7 +301,7 @@
 				item.className = 'history-item';
 				item.innerHTML = `
 					<span class="server-url">${server}</span>
-					<span class="history-remove" title="Supprimer">×</span>
+					<span class="history-remove" title="Delete">×</span>
 				`;
 				
 				item.querySelector('.server-url').addEventListener('click', () => {
@@ -340,7 +340,7 @@
 		document.addEventListener('DOMContentLoaded', () => {
 			loadUserConfig();
 			
-			// Basculer le thème
+			// Toggle theme
 			document.getElementById('theme-toggle').addEventListener('click', async () => {
 				if (!userConfig || !window.electronAPI) return;
 				
@@ -357,23 +357,23 @@
 				applyTheme();
 			});
 			
-			// Afficher l'historique au focus
+			// Show history on focus
 			document.getElementById('server-input').addEventListener('focus', showHistory);
 			
-			// Cacher l'historique au clic ailleurs
+			// Hide history on click elsewhere
 			document.addEventListener('click', (e) => {
 				if (!e.target.closest('.input-container')) {
 					hideHistory();
 				}
 			});
 			
-			// Soumission du formulaire
+			// Form submission
 			document.getElementById('server-form').addEventListener('submit', function (e) {
 				e.preventDefault();
 				const server = document.getElementById('server-input').value.trim();
 				const errorMsg = document.getElementById('error-msg');
 				if (!isValidURL(server)) {
-					errorMsg.textContent = "Veuillez saisir une URL valide (commençant par https:// ou http://).";
+					errorMsg.textContent = "Please enter a valid URL (starting with https:// or http://).";
 					errorMsg.style.display = 'block';
 					return;
 				}
