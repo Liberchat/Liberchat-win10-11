@@ -5,7 +5,7 @@
   
   <h1 style="margin-top: 0;">Liberchat Desktop 2.0.1 - Windows</h1>
   
-  <a href="https://github.com/Liberchat/Liberchat">Projet principal sur GitHub</a>
+  <a href="https://github.com/Liberchat/Liberchat">Main project on GitHub</a>
   
   <br/>
   
@@ -16,92 +16,91 @@
   <img src="https://img.shields.io/badge/license-MIT-green"/>
   
   <br/>
-  <em>Application de messagerie moderne pour Windows avec historique des serveurs et thèmes personnalisables.</em>
+  
+  <em>Modern messaging application for Windows with server history and customizable themes.</em>
 </div>
 
-## ✨ Nouveautés version 2.0.1
+##  What's New in Version 2.0.1
 
-### 🕒 Historique des serveurs
-- **Menu déroulant intelligent** : Mémorise automatiquement vos 5 derniers serveurs utilisés
-- **Sélection rapide** : Cliquez sur un serveur de l'historique pour le sélectionner instantanément
-- **Gestion facile** : Supprimez les serveurs indésirables d'un simple clic
-- **Pas de doublons** : Évite automatiquement les entrées en double
+###  Server History
+- **Smart Dropdown Menu**: Automatically remembers your last 5 used servers.
+- **Quick Selection**: Click on a server from the history to select it instantly.
+- **Easy Management**: Remove unwanted servers with a single click.
+- **No Duplicates**: Automatically prevents duplicate entries.
 
-### 🎨 Système de thèmes
-- **Mode sombre/clair** : Basculez entre les thèmes selon vos préférences
-- **Mode automatique** : Suit automatiquement le thème de votre système
-- **Persistance** : Vos préférences sont sauvegardées entre les sessions
-- **Interface complète** : Tous les éléments s'adaptent au thème choisi
+###  Theme System
+- **Dark/Light Mode**: Switch between themes according to your preferences.
+- **Automatic Mode**: Automatically follows your system theme.
+- **Persistence**: Your preferences are saved between sessions.
+- **Complete Interface**: All elements adapt to the chosen theme.
 
-### 💾 Sauvegarde intelligente
-- **Configuration persistante** : Historique et thème sauvegardés automatiquement
-- **Fichier local** : Données stockées dans `%USERPROFILE%\.liberchat\config.json`
-- **Récupération d'erreur** : Gestion robuste des données corrompues
+###  Smart Save
+- **Persistent Configuration**: History and theme are saved automatically.
+- **Local File**: Data stored in `%USERPROFILE%\.liberchat\config.json`.
+- **Error Recovery**: Robust management of corrupted data.
 
-## Fonctionnalités principales
-- **Splash screen** stylisé avec choix du serveur
-- **Compatibilité micro** (permissions automatiques)
-- **Sécurité** : contextIsolation, preload sécurisé
-- **Fenêtre principale maximisée, sans barre de menu**
-- **Icône système** : Affichage correct dans la barre des tâches
-- **Build Windows** : Installateur MSI et portable EXE
+## Main Features
+- **Styled Splash Screen** with server selection.
+- **Microphone Compatibility** (automatic permissions).
+- **Security**: contextIsolation, secure preload.
+- **Maximized Main Window**, no menu bar.
+- **System Icon**: Correct display in the taskbar.
+- **Windows Build**: MSI installer and portable EXE.
 
-## Installation & Lancement
+## Installation & Launch
 
 ```bash
-# Installer les dépendances
+# Install dependencies
 npm install
 
-# Lancer en mode développement
+# Launch in development mode
 npm start
 
-# Générer les paquets pour Windows (MSI, portable)
+# Generate Windows packages (MSI, portable)
 npm run build
 ```
 
-Les fichiers générés se trouvent dans le dossier `dist/`.
+Generated files are located in the `dist/` folder.
 
-## Installation sur Windows
+## Installation on Windows
 
-Après compilation (`npm run build`), vous trouverez dans le dossier `dist/`:
+After compilation (`npm run build`), you will find in the `dist/` folder:
 
-- **Installateur MSI** (`.msi`): Installation système complète
-  - Double-cliquez sur `Liberchat Setup *.msi`
-  - Suivez l'assistant d'installation
-  - L'application sera accessible depuis le menu Démarrer
+- **MSI Installer** (`.msi`): Full system installation.
+  - Double-click on `Liberchat Setup *.msi`.
+  - Follow the installation wizard.
+  - The application will be accessible from the Start menu.
 
+## Server Configuration
+At startup, enter the URL of the Liberchat server of your choice in the splash screen.
 
-
-## Configuration du serveur
-Au démarrage, saisissez l'URL du serveur Liberchat de votre choix dans le splash screen.
-
-## Dépendances principales
+## Main Dependencies
 - [Electron](https://www.electronjs.org/) ^22.x
 - [electron-builder](https://www.electron.build/)
 
-## Licence
+## License
 MIT
 
 ---
-Projet moderne, optimisé pour Windows 10 et 11 avec une interface native et performante.
+Modern project, optimized for Windows 10 and 11 with a native and high-performance interface.
 
-##  Utilisation
+## Usage
 
-### Configuration du serveur
-1. **Premier lancement** : Saisissez l'URL du serveur Liberchat dans le splash screen
-2. **Serveurs suivants** : Cliquez dans le champ URL pour voir l'historique de vos serveurs
-3. **Sélection rapide** : Choisissez un serveur dans la liste déroulante
+### Server Configuration
+1. **First Launch**: Enter the Liberchat server URL in the splash screen.
+2. **Subsequent Servers**: Click in the URL field to see your server history.
+3. **Quick Selection**: Choose a server from the dropdown list.
 
-### Personnalisation
-- **Changer de thème** : Cliquez sur l'icône 🌙/☀️ en haut à droite
-- **Gérer l'historique** : Utilisez le bouton ✕ pour supprimer des serveurs de l'historique
+### Customization
+- **Change Theme**: Click on the 🌙/☀️ icon in the top right.
+- **Manage History**: Use the ✕ button to remove servers from the history.
 
-### Serveur par défaut
-L'application se connecte par défaut à : `https://liberchat.cnt-ait-contact.noho.st/liberchat`
+### Default Server
+The application connects by default to: `https://liberchat.cnt-ait-contact.noho.st/liberchat`
 
-## 📋 Changelog v2.0.1
-- ✅ Ajout de l'historique des serveurs avec menu déroulant
-- ✅ Système de thèmes sombre/clair/automatique
-- ✅ Sauvegarde persistante des préférences utilisateur
-- ✅ Correction de l'affichage de l'icône dans la barre des tâches
-- ✅ Interface utilisateur améliorée et plus intuitive
+##  Changelog v2.0.1
+-  Added server history with dropdown menu.
+-  Dark/light/automatic theme system.
+-  Persistent saving of user preferences.
+-  Fixed icon display in the taskbar.
+-  Improved and more intu
